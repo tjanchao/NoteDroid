@@ -1,8 +1,11 @@
 package be.ehb.notedroid.activity;
 
+import android.content.Intent;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 
 import be.ehb.notedroid.util.NoteListFragmentDelegate;
@@ -38,5 +41,21 @@ public class MainActivity extends AppCompatActivity implements NoteListFragmentD
     @Override
     public void chosenNote(Note n) {
         getSupportFragmentManager().beginTransaction().replace(R.id.frag_container, NewNoteFragment.newInstance(n)).addToBackStack("back").commit();
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.menu_main,menu);
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()){
+            case R.id.mi_pref_settings:
+                Intent i = new Intent(getApplicationContext(),SettingsActivity.class);
+                startActivity(i);
+        }
+        return super.onOptionsItemSelected(item);
     }
 }

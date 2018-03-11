@@ -9,4 +9,6 @@
     <string name="txt_lbl_create">Created on:</string>
     <string name="txt_lbl_changed">Changed on:</string>
     <string name="text_mi_delete">Delete</string>
+    <string name="txt_list_preference">Order notes by</string>
+    <string name="txt_mi_settings">Settings</string>
 </resources>
