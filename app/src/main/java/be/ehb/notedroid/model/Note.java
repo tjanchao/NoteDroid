@@ -1,12 +1,13 @@
-package be.ehb.notedroid;
+package be.ehb.notedroid.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
  * Created by Q on 20-2-2018.
  */
 
-public class Note {
+public class Note implements Serializable {
 
     private String titel;
     private String inhoud;
