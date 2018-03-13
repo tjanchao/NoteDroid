@@ -9,6 +9,7 @@ import java.util.Date;
  * Created by Q on 20-2-2018.
  */
 
+
 public class Note implements Serializable, Comparable<Note> {
 
     private String titel;
