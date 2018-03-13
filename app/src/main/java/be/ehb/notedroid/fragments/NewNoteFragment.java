@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.Locale;
 
 import be.ehb.notedroid.model.Note;
@@ -87,8 +88,9 @@ public class NewNoteFragment extends Fragment {
 
 
                 if (isNew) {
-                    Note mNote = new Note(title, note);
+                    Note mNote = new Note(title, note, new Date(),new Date());
                     NoteDataSource.getINSTANCE().insertNote(mNote);
+
                 } else {
                     n.setTitel(title);
                     n.setInhoud(note);

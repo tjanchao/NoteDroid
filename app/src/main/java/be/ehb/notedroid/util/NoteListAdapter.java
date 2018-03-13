@@ -8,6 +8,7 @@ import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.Locale;
 
@@ -32,6 +33,16 @@ public class NoteListAdapter extends BaseAdapter {
     public NoteListAdapter(Activity mContext) {
         this.mContext = mContext;
         items = NoteDataSource.getINSTANCE().getNoteList();
+
+    }
+
+    public void orderByTitle(){
+        //Collections.sort(items);
+        Collections.sort(items,NoteSorters.getAlphabeticNotes());
+    }
+
+    public void orderByDate(){
+        Collections.sort(items,NoteSorters.getAscendingDate());
     }
 
 

@@ -1,6 +1,7 @@
 package be.ehb.notedroid.model;
 
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Q on 20-2-2018.
@@ -15,9 +16,11 @@ final public class NoteDataSource {
     private NoteDataSource() {
         noteList = new ArrayList<>();
 
-        noteList.add(new Note("blkdsbj", "bsadhkje"));
-        noteList.add(new Note("poiyv", "jisdof"));
-        noteList.add(new Note("nbiw", "nksdfj"));
+        noteList.add(new Note("xgdgfgf","fdgdfgfgg", new Date(), new Date()));
+        noteList.add(new Note("dgdgfgf","fdgdfgfgg", new Date(), new Date()));
+        noteList.add(new Note("agdgfgf","fdgdfgfgg", new Date(), new Date()));
+        noteList.add(new Note("cgdgfgf","fdgdfgfgg", new Date(), new Date()));
+
 
 
     }
@@ -41,6 +44,7 @@ final public class NoteDataSource {
             if (note.getTitel().equals(n.getTitel()) && note.getInhoud().equals(n.getInhoud())) {
                 int index = noteList.indexOf(note);
 
+                n.setLaatsteWijziging(new Date());
                 noteList.set(index, n);
 
             }

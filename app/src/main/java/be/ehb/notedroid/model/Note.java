@@ -1,5 +1,7 @@
 package be.ehb.notedroid.model;
 
+import android.support.annotation.NonNull;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -7,7 +9,7 @@ import java.util.Date;
  * Created by Q on 20-2-2018.
  */
 
-public class Note implements Serializable {
+public class Note implements Serializable, Comparable<Note> {
 
     private String titel;
     private String inhoud;
@@ -15,11 +17,11 @@ public class Note implements Serializable {
     private Date laatsteWijziging;
 
 
-    public Note(String titel, String inhoud) {
+    public Note(String titel, String inhoud, Date aanmaakDatum, Date laatsteWijziging) {
         this.titel = titel;
         this.inhoud = inhoud;
-        this.aanmaakDatum = new Date();
-        this.laatsteWijziging = new Date();
+        this.aanmaakDatum = aanmaakDatum;
+        this.laatsteWijziging = laatsteWijziging;
     }
 
     public String getTitel() {
@@ -57,5 +59,10 @@ public class Note implements Serializable {
     @Override
     public String toString() {
         return this.titel;
+    }
+
+    @Override
+    public int compareTo(@NonNull Note note) {
+        return this.titel.compareTo(note.titel);
     }
 }

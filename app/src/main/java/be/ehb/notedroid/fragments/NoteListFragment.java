@@ -2,7 +2,10 @@ package be.ehb.notedroid.fragments;
 
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.view.ContextMenu;
 
@@ -89,5 +92,29 @@ public class NoteListFragment extends Fragment {
         mNoteListAdapter.notifyDataSetChanged();
 
         return super.onContextItemSelected(item);
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+
+        SharedPreferences sp = PreferenceManager.getDefaultSharedPreferences(getActivity());
+
+        String orderByOption = sp.getString("list_preference_1","0");
+
+        switch (orderByOption){
+            case "Order by title" : mNoteListAdapter.orderByTitle();
+            case "Order by date - descending" : mNoteListAdapter.orderByDate();
+            case "Order by date - ascending" : mNoteListAdapter.orderByDate();
+
+            mNoteListAdapter.notifyDataSetChanged();
+
+        }
+
+
+
+
+
+
     }
 }
