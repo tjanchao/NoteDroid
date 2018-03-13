@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string-array name="array_order_options">
+        <item>Order by title</item>
+        <item>Order by date - descending</item>
+        <item>Order by date - ascending</item>
+    </string-array>
+
+</resources>
